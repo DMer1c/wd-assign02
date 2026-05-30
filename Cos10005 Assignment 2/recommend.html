@@ -18,7 +18,39 @@
       </nav>
     </header>
     <main>
-        
+      <h1>Recommendations</h1>
+      <form id="recommend-form">
+        <div>
+          <label for="dietary-preference">Dietary Preferences</label>
+          <select id="dietary-preference" name="dietary-preference">
+            <option value="">--Select Dietary Preferences</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Halal">Halal</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="None">None</option>
+          </select>
+        </div>
+        <div>
+          <label for="budget-range">Budget Range</label>
+          <select id="budget-range" name="budget-range">
+            <option value="">-- Select a Budget Range</option>
+            <option value="low">$20-$60</option>
+            <option value="medium">$40-$80</option>
+            <option value="high">$60-$160</option>
+          </select>
+        </div>
+        <div>
+          <label for="dining-purpose">Dining Purpose</label>
+          <select id="dining-purpose" name="dining-purpose">
+            <option value="">--Select a Dining Purpose--</option>
+            <option value="family">Family</option>
+            <option value="date">Date</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+        <div><button type="submit">Find My Restaurant</button></div>
+      </form>
+      <div id="recommendation-results"></div>
     </main>
     <footer><p>&copy; 2026 Gordito. All rights reserved.</p></footer>
     <script src="js/script.js"></script>
