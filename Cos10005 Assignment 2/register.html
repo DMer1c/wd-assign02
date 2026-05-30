@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gordito | Register</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo">Gordito</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="recommend.html">Recommendations</a>
+        <a href="reservation.html">Reservations</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Create an Account</h1>
+      <form id="register-form" method="POST" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php">
+        <div>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username">
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div>
+          <label for="phonenumber">Phone Number</label>
+          <input type="text" id="phonenumber" name="phonenumber">
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password">
+        </div>
+        <div>
+          <label for="confirmpassword">Confirm Password</label>
+          <input type="password" id="confirmpassword" name="confirmpassword">
+        </div>
+        <div>
+          <label>Gender</label>
+          <label><input type="radio" name="gender" value="male"> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+          <label><input type="radio" name="gender" value="other"> Other</label>
+        </div>
+        <div>
+          <label>Dietary Preferences</label>
+          <label><input type="checkbox" name="dietary" value="vegan"> Vegan</label>
+          <label><input type="checkbox" name="dietary" value="halal"> Halal</label>
+          <label><input type="checkbox" name="dietary" value="vegetarian"> Vegetarian</label>
+          <label><input type="checkbox" name="dietary" value="none"> None</label>
+        </div>
+        <div>
+          <label for="country">Country/Region</label>
+          <input type="text" id="country" name="country">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <footer><p>&copy; 2026 Gordito. All rights reserved.</p></footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
