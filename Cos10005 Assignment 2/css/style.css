@@ -1,0 +1,37 @@
+* {         /*targets every element on the page*/
+   margin: 0;   /*removes default spacing usually added by browsers*/
+   padding: 0; /*removes default inner spacing*/
+   box-sizing: border-box;  /*kinda changes how element sizes are calculated by including padding with the width of an element to prevent them from adding to each other*/
+}
+body {
+  font-family: Arial, sans-serif;   /*sets the font witha backup*/
+  background-color: #fff8f0;   /*sets the background color obviously*/
+  color: #333;                  /*changes text color to be a nicer tone than black*/
+}
+header {
+  background-color: #e8824a;  /*background color for the header*/
+  padding: 16px 32px;   /*adds breathing room*/
+  display: flex;           /*makes the header a flex container, putting logo and nav side by side*/
+  justify-content: space-between;  /*pushes logo to left and nav to right*/
+  align-items: center;           /*centres both in the middle of the header vertically*/
+}
+.logo {   /*targets elements with class=logo*/
+  color: #fff; 
+  font-size: 24px;  /*dictates font size??*/
+  font-weight: bold; /*take a wild guess*/
+  text-decoration: none;   /*removes the underline from links*/
+}
+nav a {     /*targets all <a> tags inside a <nav>*/
+  color: #fff;
+  text-decoration: none;
+  margin-left: 24px;    /*adds spacing between each nav link*/
+  font-size: 16px;
+}
+nav a:hover {   /*called a "pseudo class" bassically just targets a thing when a user hovers over it*/
+  color: #ffe0b2;
+}
+nav a.active { /*similar to last time but only targets those in class="active"*/
+  color: #ffe0b2;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;  /*adds a cool little white underline to a slelected page*/
+}
