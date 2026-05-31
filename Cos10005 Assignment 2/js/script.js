@@ -1,3 +1,5 @@
+/* Registration validation */
+
 document.getElementById("register-form").addEventListener("submit", function(event) {
   event.preventDefault();
   var username = document.getElementById("username").value.trim();   /*BREAKDOWN: document.getElementById("") finds the input element, while .value reads what the users types in the field, and .trim removes any excess spaces. All these are stores in <var>*/
@@ -71,6 +73,87 @@ document.getElementById("register-form").addEventListener("submit", function(eve
   else {
     document.getElementById("register-form").submit();   /* if no errors found -> submits the form */
   }
-
-    
 });
+
+/* Reservation validation */
+document.getElementById("reservation-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var fullname = document.getElementById("name").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var phone = document.getElementById("phonenumber").value.trim();
+  var restaurant = document.getElementById("restaurant").value;
+  var date = document.getElementById("date").value;
+  var time = document.getElementById("time").value;
+  var people = document.getElementById("people").value;
+  var paymentMethod = document.getElementById("deposit-method").value;
+  var voucherCode = document.getElementById("voucher-code").value.trim();
+  var cardNumber = document.getElementById("card-number").value.trim();
+   
+  var errors = [];   
+  if (fullname === "") {    
+    errors.push("Fullname is required");  
+  }
+  if (email === "") {    
+    errors.push("Email is required");  
+  }
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {            
+    errors.push("Invalid Email.");
+  }
+  if (phone === "") {   
+    errors.push("Phone Number is required"); 
+  }
+  else if (phone.length < 10 || phone.length > 15) {  
+    errors.push("Phone Number must be at least 8 - 15 units.");
+  }
+  else if (!/^\d+$/.test(phone)) {            
+      errors.push("Phone Number Invalid.");
+  }
+  if (restaurant === "") {
+  errors.push("Please select a restaurant.");
+  }
+  if (date === "") {
+    errors.push("Please select a date.");
+  } else {
+    var today = new Date();  /* creates an object representing right now */
+    today.setHours(0, 0, 0, 0);  /*resets the time to midnight so we only compare dates not times*/
+    var selectedDate = new Date(date);  /*converts the date string from the input into a comparable Date object*/
+    if (selectedDate < today) {
+      errors.push("Reservation date cannot be in the past.");
+    }
+  }
+  if (time === "") {
+    errors.push("Please select a time.");
+  }
+  if (people === "" || parseInt(people) < 1) { /*converts the string value to a whole number for comparison*/
+    errors.push("Number of people must be at least 1.");
+  }
+  if (paymentMethod === "") {
+    errors.push("Please select a payment method.");
+  }
+  if (paymentMethod === "voucher") {
+  if (voucherCode === "") {
+    errors.push("Please enter your voucher code.");
+  }
+}
+if (paymentMethod === "online") {
+  if (cardNumber === "") {
+    errors.push("Please enter your credit card number.");
+  } else if (!/^\d+$/.test(cardNumber)) {
+    errors.push("Credit card number must contain digits only.");
+  } else if (cardNumber.length !== 16 && cardNumber.length !== 15) {  /* this uses && (AND) which means both conditions have to be true. only triggers if the card is neither 15 or 16 digits.*/
+    errors.push("Credit card must be 15 digits (Amex) or 16 digits (Visa/Mastercard).");
+  }
+}
+if (errors.length > 0) {
+  var errorBox = document.getElementById("reservation-error-box");
+  errorBox.innerHTML = "<ul><li>" + errors.join("</li><li>") + "</li></ul>";
+  errorBox.style.display = "block";
+} else {
+  document.getElementById("reservation-form").submit();
+}
+});
+
+
+  
+    
+
