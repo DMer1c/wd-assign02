@@ -17,12 +17,56 @@ document.getElementById("register-form").addEventListener("submit", function(eve
   else if (!/^[a-zA-Z0-9_]+$/.test(username)) {            /*small line to make sure that special characters arn't used in usernames*/
       errors.push("Username can only contain letters, numbers, and underscores.");
   }
-  if (email === "") {    /*using === to make sure the field is completely empty, (=== means "exactly equal to")*/
-    errors.push("Email is required");  /*errors.push adds each message as a seperate item in an array instead of ErrMsg which builds one large string by concentrating messages together*/
+  if (email === "") {    
+    errors.push("Email is required");  
   }
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {            /*small line to make sure that special characters arn't used in usernames*/
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {            /*changed regex to the standard email one i found online*/
       errors.push("Invalid Email.");
-}
-  
-
+  }
+  if (phone === "") {   
+    errors.push("Phone Number is required"); 
+  }
+  else if (phone.length < 8 || phone.length > 15) {  
+    errors.push("Phone Number must be at least 8 - 15 units.");
+  }
+  else if (!/^\d+$/.test(phone)) {            /*same as before but only checks for numbers*/
+      errors.push("Phone Number Invalid.");
+  }
+  if (password === "") {
+    errors.push("Password is Required.");
+  }
+  else if (password.length < 10) {
+    errors.push("Password mush be atleast 10 characters.");
+  }
+  else if (!/[A-Z]/.test(password)) {       /*same as before but only checks for uppercase letters*/
+    errors.push("Password must contain atleast one uppercase letter");
+  }
+  else if (!/[a-z]/.test(password)) {      /*same as before but only checks for lowercase letters*/
+    errors.push("Password must contain atleast one lowercase letter");
+  }
+  else if (!/[0-9]/.test(password)) {   
+    errors.push("Password must contain atleast one number");
+  }
+  else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    errors.push("Password must contain atleast one special character");
+  }
+  if (confirmPassword === "") {
+    errors.push("Please confirm your password");
+  }
+  else if (confirmPassword !== password) {  /* !== means not equal to*/
+    errors.push("Passwords do not match");
+  }
+  if (country === "") {
+    errors.push("Country/Region is required");
+  }
+  if (errors.length > 0) {   /*checks for errors in the array that we made above*/
+    var errorBox = document.getElementById("error-box");    /*finds the <div> we added in the html to display errors*/
+    errorBox.innerHTML = "<ul><li>" + errors.join("</li><li>") + "</li></ul>";  /*sets the HTML content inside the error box*/ /*joins all the array items together into one string, putting </li><li> between each one to make a bullet list*/
+    errorBox.style.display = "block";   /* makes the error box visible */
+  }
+  else {
+    document.getElementById("register-form").submit();   /* if no errors found -> submits the form */
+  }
+    
+    
 });
