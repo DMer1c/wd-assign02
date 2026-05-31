@@ -6,6 +6,7 @@ document.getElementById("register-form").addEventListener("submit", function(eve
   var password = document.getElementById("password").value.trim();
   var confirmPassword = document.getElementById("confirmpassword").value.trim();
   var country = document.getElementById("country").value.trim();
+  var gender = document.querySelector('input[name="gender"]:checked');  /* "document.querySelector" similar to getElementById but more flexible, can find elements by any CSS-style selector*/ /*input[name="gender"]:checked — finds a radio button with name="gender" that is currently checked"*/
 
   var errors = [];    /* creates an empty array, adds error messages to it's "list" when they occure and we can then check this list*/
   if (username === "") {    /*using === to make sure the field is completely empty, (=== means "exactly equal to")*/
@@ -59,6 +60,9 @@ document.getElementById("register-form").addEventListener("submit", function(eve
   if (country === "") {
     errors.push("Country/Region is required");
   }
+  if (gender === null) {
+    errors.push("please select a gender.");
+  }
   if (errors.length > 0) {   /*checks for errors in the array that we made above*/
     var errorBox = document.getElementById("error-box");    /*finds the <div> we added in the html to display errors*/
     errorBox.innerHTML = "<ul><li>" + errors.join("</li><li>") + "</li></ul>";  /*sets the HTML content inside the error box*/ /*joins all the array items together into one string, putting </li><li> between each one to make a bullet list*/
@@ -67,6 +71,6 @@ document.getElementById("register-form").addEventListener("submit", function(eve
   else {
     document.getElementById("register-form").submit();   /* if no errors found -> submits the form */
   }
-    
+
     
 });
