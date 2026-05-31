@@ -174,3 +174,68 @@ document.getElementById("deposit-method").addEventListener("change", function() 
   document.getElementById("voucher-section").style.display = method === "voucher" ? "block" : "none";  /*method === "voucher" ? "block" : "none" this is a ternary operator, a shorthand if/else. It means "if method is voucher, use block, otherwise use none"*/
   document.getElementById("card-section").style.display = method === "online" ? "block" : "none";   /*style.display = "none" hides an element, "block" shows it*/
 });
+
+
+/* Same as email checkbox */
+document.getElementById("same-email").addEventListener("change", function() {   /*similar to last time "change" event fires when the checkbox is ticked or unticked*/
+  if (this.checked) {  /*this.checked — returns true if the checkbox is currently checked, false if not. It also copies the value from the email field into the billing email field if check and if not it clears the billing email field*/
+    document.getElementById("billing-email").value = document.getElementById("email").value;
+  } else {
+    document.getElementById("billing-email").value = "";
+  }
+});
+
+/* Recommendation logic */
+document.getElementById("recommend-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var dietary = document.getElementById("dietary-preference").value;
+  var budget = document.getElementById("budget-range").value;
+  var purpose = document.getElementById("dining-purpose").value;
+
+  var recommendation = "";
+
+  if (dietary === "Halal" && budget === "high") {
+    recommendation = "Ho Siak";
+  } 
+  else if (dietary === "Halal") {
+    recommendation = "Tond-oo";
+  } 
+  else if (dietary === "Vegan") {
+    recommendation = "Tond-oo";
+  }
+  else if (dietary === "Vegetarian") {
+    recommendation = "Tond-oo";
+  } 
+  else if (budget === "high" && (purpose === "date" || purpose === "business")) {
+    recommendation = "Kuishinbō";
+  } 
+  else if (budget === "high") {
+    recommendation = "Ho Siak";
+  } 
+  else if (purpose === "date") {
+    recommendation = "Kuishinbō";
+  } 
+  else if (budget === "low" && purpose === "family") {
+    recommendation = "Queso y Carne";
+  } 
+  else if (purpose === "family" && budget === "medium") {
+    recommendation = "3 Kingdoms";
+  } 
+  else {
+    recommendation = "Landro";
+  }
+
+  document.getElementById("recommendation-results").innerHTML = 
+    "<h2>We recommend: " + recommendation + "!</h2>" +
+    "<p><a href='reservation.html?restaurant=" + recommendation.toLowerCase() + "'>Book a table at " + recommendation + "</a></p>";
+});
+
+/* Pre-fill restaurant from URL parameter */
+window.addEventListener("load", function() {  /*window.addEventListener("load", ...) — runs when the page finishes loading*/
+  var params = new URLSearchParams(window.location.search); /*URLSearchParams is a built-in JS tool for reading URL parameters*/ /*window.location.search — the part of the URL after the ?*/
+  var restaurant = params.get("restaurant");  /*params.get("restaurant") gets the value of the restaurant parameter*/
+  if (restaurant) {
+    document.getElementById("restaurant").value = restaurant;
+    document.getElementById("restaurant").dispatchEvent(new Event("change"));  /*dispatchEvent(new Event("change")) — manually triggers the change event so the deposit amount also updates automatically*/
+  }
+});
