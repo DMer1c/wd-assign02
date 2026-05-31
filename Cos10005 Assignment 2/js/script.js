@@ -153,7 +153,24 @@ if (errors.length > 0) {
 }
 });
 
-
+/* Dynamic deposit update */
+document.getElementById("restaurant").addEventListener("change", function() {  /*"change" event fires when the dropdown selection changes*/
+  var deposits = {   /*deposits is an object, "kinda like a collection of key-value pairs"(still not really sure what it means but we need it). Each restaurant value maps to its deposit amount*/
+    "landro": 20,
+    "3kingdoms": 30,
+    "hosiak": 100,
+    "kuishinbō": 80,
+    "quesoycarne": 20,
+    "tondoo": 20
+  };
+  var selected = this.value;  /*this.value — refers to the current element's value (the selected restaurant)*/
+  var amount = deposits[selected] || "";   /* looks up the deposit for the selected restaurant, also || "" — if nothing is found, default to empty string*/
+  document.getElementById("deposit").value = amount ? "$" + amount : ""; 
+});
   
-    
-
+/* Show/hide voucher or card field based on payment method */
+document.getElementById("deposit-method").addEventListener("change", function() {
+  var method = this.value;
+  document.getElementById("voucher-section").style.display = method === "voucher" ? "block" : "none";  /*method === "voucher" ? "block" : "none" this is a ternary operator, a shorthand if/else. It means "if method is voucher, use block, otherwise use none"*/
+  document.getElementById("card-section").style.display = method === "online" ? "block" : "none";   /*style.display = "none" hides an element, "block" shows it*/
+});
