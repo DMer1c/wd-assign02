@@ -120,3 +120,31 @@ section p {
    border-radius: 8px;
    margin: 12px 0;
 }
+form {
+   background-color: #fff;
+   padding: 32px;
+   border-radius: 8px;
+   max-width: 600px;
+   margin: 0 auto;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+form div {
+   margin-bottom: 16px;
+}
+label {
+   display: block;
+   font-weight: bold;
+   margin-bottom: 6px;
+   color: #555;
+}
+input, select, textarea {  /*comma separated selectors generally means "apply this rule to all three of these elements"*/
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;  /*adds a subtle grey border around inputs*/
+   border-radius: 6px;
+   font-size: 16px;
+}
+textarea {
+   height: 100px;
+   resize: vertical; /*allows users to rezise the textarea vertically only*/
+}
