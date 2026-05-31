@@ -222,3 +222,8 @@ footer p {
       padding: 16px;
    }
 }
+
+/*voucher/card show/hide thingo i forgot*/
+#voucher-section, #card-section {
+  display: none;
+}
