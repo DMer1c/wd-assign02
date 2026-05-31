@@ -91,6 +91,10 @@ section p {
    font-size: 16px;
    line-height: 1.6;  /*controlls the spacing between the paragraph lines (1.6x the fonts size tall). this makes it more readable i think*/
 }
+
+
+/*RESTAURANT CARDS / List */
+
 .restaurant-list {
    display: grid; /*similar to flexbox but for two-dimensional layouts*/
    grid-template-columns: repeat(2, 1fr); /*creates 2 equal columns, 1fr means "1 fraction of the available space"*/
@@ -120,6 +124,10 @@ section p {
    border-radius: 8px;
    margin: 12px 0;
 }
+
+
+/*FORMS*/
+
 form {
    background-color: #fff;
    padding: 32px;
@@ -148,6 +156,10 @@ textarea {
    height: 100px;
    resize: vertical; /*allows users to rezise the textarea vertically only*/
 }
+
+
+/*BUTTONS*/
+
 button[type="submit"] {   /*another attribute selector like before that targets <button> elemtns that have type="submit". Use [] to target specific attribute values.*/
    background-color: #e8824a;
    color: #fff;
@@ -162,4 +174,51 @@ button[type="submit"] {   /*another attribute selector like before that targets 
 }
 button[type="submit"]:hover {
    background-color: #d4713d; /*darker color to signal the button being pressed*/
+}
+
+/*FOOTER*/
+
+footer {
+   background-color: #e8824a;
+   color: #fff;
+   text-align: center;
+   padding: 24px 32px;
+   margin-top: 48px;
+}
+footer p {
+   font-size: 14px;
+}
+
+
+/* RESPONSIVE DESIGN FOR TABLETS & PHONES */
+/* small rules to overide the default css so that it can work for other devices*/
+
+/*TABLET*/
+@media (max-width: 1023px) {  /*if the screen is this size, overide some of those rules*/
+   .restaurant-list {
+      grid-template-columns: 1fr;  /*makes it so that if the screen is matching the media query, it overides the previouse 2 columns and instead makes it only use 1 column*/
+   }
+   main {
+      padding: 24px;
+   }
+}
+
+/*MOBLIE PHONES*/
+@media (max-width: 767px) {
+   header {
+      flex-direction: column;   /*changes flex default from being a row to being a column which makes things stack vertically which works better on phones*/
+      gap: 12px;  /*adds spacing between the logo and nav when stacked*/
+   }
+   nav a {
+      margin-left: 12px;
+   }
+   .hero {
+      padding: 32px 16px;
+   }                                /*over all font sizez and padding reduced to fit cleanly on a phone*/
+   .hero h1 {
+      font-size: 32px;
+   }
+   form {
+      padding: 16px;
+   }
 }
