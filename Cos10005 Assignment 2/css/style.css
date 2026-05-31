@@ -35,3 +35,60 @@ nav a.active { /*similar to last time but only targets those in class="active"*/
   font-weight: bold;
   border-bottom: 2px solid #fff;  /*adds a cool little white underline to a slelected page*/
 }
+main {
+   padding: 32px;
+   max-width: 1200px; /*stops content from streching too much on large screens*/
+   margin: 0 auto; /*auto centres the content horizontally on the page*/
+}
+.hero {
+   background-color: #e8824a;
+   color: #fff;
+   padding: 64px 32px;
+   text-align: center; /*centres all the text inside the hero*/
+   border-radius: 8px;  /*rounds corner for a better look*/
+   margin-bottom: 32px; /*adds a fancy space below the hero before the next section*/
+}
+.hero h1 {   /*only targets the h1 in hero*/
+   font-size: 48px;
+   margin-bottom: 16px;  /*these just add breathing room between each other*/
+}
+.hero p {
+   font-size: 18px;
+   margin-bottom: 24px;
+}
+.hero img {
+   width: 100%;    /*makes the image fill the full width of it's container*/
+   max-height: 400px; /*caps how tall the image can be*/
+   object-fit: cover;  /*crops images to fit instead of squishing them*/
+   border-radius: 8px;
+   margin-top: 24px;
+}
+.btn {   /*button*/
+   display: inline-block; /*by default <a> tags are inline and can't have padding applied properly, this gets through that*/
+   background-color: #fff;
+   color: #e8824a;
+   padding: 12px 28px;
+   border-radius: 24px;  /*makes the button look pill shaped which is way cooler than a rectangle with rounded corners*/
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 16px;
+}
+.btn:hover {
+   background-color: #ffe0b2;
+}
+section {
+   margin-bottom: 32px;
+   padding: 32px;
+   background-color: #fff; /*white cards for nice contrast against the background*/
+   border-radius: 8px;
+}
+section h2 {
+   font-size: 28px;
+   color: #e8824a;
+   margin-bottom: 16px;
+}
+section p {
+   font-size: 16px;
+   line-height: 1.6;  /*controlls the spacing between the paragraph lines (1.6x the fonts size tall). this makes it more readable i think*/
+}
+
