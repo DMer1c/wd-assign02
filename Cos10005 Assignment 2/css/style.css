@@ -148,3 +148,18 @@ textarea {
    height: 100px;
    resize: vertical; /*allows users to rezise the textarea vertically only*/
 }
+button[type="submit"] {   /*another attribute selector like before that targets <button> elemtns that have type="submit". Use [] to target specific attribute values.*/
+   background-color: #e8824a;
+   color: #fff;
+   padding: 12px 28px;
+   border: none;  /*removes the default border from buttons*/
+   border-radius: 24px;
+   font-size: 16px;
+   font-weight: bold;
+   cursor: pointer;  /*changes user cursor to funny hand when hovering over clickable object*/
+   width: 100%;
+   margin-top: 8px;
+}
+button[type="submit"]:hover {
+   background-color: #d4713d; /*darker color to signal the button being pressed*/
+}
