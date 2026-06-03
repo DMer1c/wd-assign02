@@ -238,7 +238,7 @@ if (recommendForm) {
 
     document.getElementById("recommendation-results").innerHTML =
       "<h2>We recommend: " + recommendation + "!</h2>" +
-      "<p><a href='reservation.html?restaurant=" + recommendation.toLowerCase() + "'>Book a table at " + recommendation + "</a></p>";
+      "<p><a href='reservation.html?restaurant=" + {"Ho Siak":"hosiak","Tond-oo":"tondoo","Queso y Carne":"quesoycarne","Kuishinbō":"kuishinbō","3 Kingdoms":"3kingdoms","Landro":"landro"}[recommendation] + "'>Book a table at " + recommendation + "</a></p>";
   });
 }
 /* Pre-fill restaurant from URL parameter */
