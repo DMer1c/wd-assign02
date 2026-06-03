@@ -164,7 +164,7 @@ document.getElementById("restaurant").addEventListener("change", function() {  /
     "tondoo": 20
   };
   var selected = this.value;  /*this.value — refers to the current element's value (the selected restaurant)*/
-  var amount = deposits[selected] || "";   /* looks up the deposit for the selected restaurant, also || "" — if nothing is found, default to empty string*/
+  var amount = deposits[selected] || "";   /* looks up the deposit for the selected restaurant, also || ""  if nothing is found, default to empty string*/
   document.getElementById("deposit").value = amount ? "$" + amount : ""; 
 });
   
@@ -178,7 +178,7 @@ document.getElementById("deposit-method").addEventListener("change", function() 
 
 /* Same as email checkbox */
 document.getElementById("same-email").addEventListener("change", function() {   /*similar to last time "change" event fires when the checkbox is ticked or unticked*/
-  if (this.checked) {  /*this.checked — returns true if the checkbox is currently checked, false if not. It also copies the value from the email field into the billing email field if check and if not it clears the billing email field*/
+  if (this.checked) {  /*this.checked  returns true if the checkbox is currently checked, false if not. It also copies the value from the email field into the billing email field if check and if not it clears the billing email field*/
     document.getElementById("billing-email").value = document.getElementById("email").value;
   } else {
     document.getElementById("billing-email").value = "";
@@ -231,11 +231,11 @@ document.getElementById("recommend-form").addEventListener("submit", function(ev
 });
 
 /* Pre-fill restaurant from URL parameter */
-window.addEventListener("load", function() {  /*window.addEventListener("load", ...) — runs when the page finishes loading*/
-  var params = new URLSearchParams(window.location.search); /*URLSearchParams is a built-in JS tool for reading URL parameters*/ /*window.location.search — the part of the URL after the ?*/
+window.addEventListener("load", function() {  /*window.addEventListener("load", ...)  runs when the page finishes loading*/
+  var params = new URLSearchParams(window.location.search); /*URLSearchParams is a built-in JS tool for reading URL parameters*/ /*window.location.search  the part of the URL after the ?*/
   var restaurant = params.get("restaurant");  /*params.get("restaurant") gets the value of the restaurant parameter*/
   if (restaurant) {
     document.getElementById("restaurant").value = restaurant;
-    document.getElementById("restaurant").dispatchEvent(new Event("change"));  /*dispatchEvent(new Event("change")) — manually triggers the change event so the deposit amount also updates automatically*/
+    document.getElementById("restaurant").dispatchEvent(new Event("change"));  /*dispatchEvent(new Event("change"))  manually triggers the change event so the deposit amount also updates automatically*/
   }
 });
